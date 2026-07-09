@@ -14,12 +14,15 @@ jobs:
       - name: Install dependencies
         run: apt-get update -qq && apt-get install -y -qq build-essential cmake debhelper dpkg-dev qt6-base-dev qt6-svg-dev
       - name: Build Debian package
-        run: dpkg-buildpackage -us -uc -b
+        run: |
+          dpkg-buildpackage -us -uc -b
+          mkdir -p artifacts
+          mv ../*.deb ../*.buildinfo ../*.changes artifacts/ 2>/dev/null || true
       - name: Upload .deb
         uses: actions/upload-artifact@v4
         with:
           name: lingmo-icon-deb
-          path: ../lingmo-icon*.deb
+          path: artifacts/
   rpm:
     runs-on: ubuntu-24.04
     container: fedora:44
