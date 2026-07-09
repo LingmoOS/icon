@@ -1,0 +1,19 @@
+Source: lingmo-icon
+Section: libs
+Priority: optional
+Maintainer: Lingmo OS Team <team@lingmo.org>
+Build-Depends: debhelper-compat (= 13), cmake (>= 3.21), qt6-base-dev (>= 6.5), qt6-svg-dev (>= 6.5)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: liblingmoicon1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Lingmo Desktop - Icon theme engine
+ Provides XDG icon theme loading with fallback chain and SVG support.
+
+Package: liblingmoicon-dev
+Architecture: any
+Section: libdevel
+Depends: liblingmoicon1 (= ${binary:Version}), qt6-base-dev (>= 6.5), ${misc:Depends}
+Description: Lingmo Desktop - Icon theme engine (development files)

@@ -1,0 +1,7 @@
+#pragma once
+#include <QtCore/qglobal.h>
+#if defined(LINGMOICON_LIBRARY)
+#  define LINGMOICON_EXPORT Q_DECL_EXPORT
+#else
+#  define LINGMOICON_EXPORT Q_DECL_IMPORT
+#endif
