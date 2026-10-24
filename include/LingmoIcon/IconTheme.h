@@ -36,6 +36,13 @@ public:
     // Get the fallback icon name for a given icon
     QString fallbackIcon(const QString &iconName) const;
 
+    // Resolve the on-disk file path for an icon, following the XDG
+    // Icon Theme Specification fallback chain. Returns an empty string
+    // when no matching file is found.
+    // category is the directory context ("actions", "apps", ...) or empty for any.
+    QString lookupIconPath(const QString &iconName, int size = 32,
+                            const QString &category = {}) const;
+
 Q_SIGNALS:
     void themeNameChanged();
     void searchPathsChanged();
